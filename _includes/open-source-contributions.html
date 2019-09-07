@@ -1,0 +1,12 @@
+<h2 {% if site.style == 'dark' %}class="text-white"{% endif %}>Open Source Contributions</h2>
+<p class="f4 mb-4 {% if site.style == 'dark' %}text-white{% else %}text-gray{% endif %}">Top Open Source repositories that I've contributed to.</p>
+<div class="d-sm-flex flex-wrap gutter-condensed mb-4">
+  {% assign projects = 'gecko-dev, teammates, ice, ice-scripts, almanac.httparchive.org, jenkins-job-builder, cra-materials, design-system-react' | split: ', ' %}
+  {% for repository in site.github.public_repositories %}
+    {% if projects contains repository.name %}
+      <div class="col-sm-6 col-md-12 col-lg-6 col-xl-4 mb-3">
+        {% include repo-card-open-source-contributions.html %}
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>

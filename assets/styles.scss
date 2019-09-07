@@ -52,3 +52,16 @@
 .min-height-full {
   min-height: 100vh;
 }
+
+.knowledge-sharing-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.knowledge-sharing {
+  margin-bottom: 30px;
+}
+
+.knowledge-sharing a {
+  color: white;
+}

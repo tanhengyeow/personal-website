@@ -1,0 +1,35 @@
+<div class="github-component d-flex flex-column flex-justify-between height-full text-left {% if site.style == 'dark' %}box-shadow{% else %}border border-gray-light{% endif %} bg-white rounded-1 p-3">
+  <div>
+    <div class="d-flex flex-justify-between flex-items-start mb-1">
+      <h1 class="f4 lh-condensed mb-1">
+        {% if repository.name == 'gecko-dev' %}
+          {% assign link = 'https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&emailtype1=exact&emailassigned_to1=1&email1=E0032242%40u.nus.edu&list_id=14884694' %}
+        {% elsif repository.name == 'teammates' %}
+          {% assign link = 'https://github.com/TEAMMATES/teammates/issues?utf8=%E2%9C%93&q=involves%3Atanhengyeow' %}
+        {% elsif repository.name == 'almanac.httparchive.org' %}
+          {% assign link = 'https://github.com/HTTPArchive/almanac.httparchive.org/issues?utf8=%E2%9C%93&q=involves%3Atanhengyeow' %}
+        {% elsif repository.name == 'ice' %}
+          {% assign link = 'https://github.com/alibaba/ice/issues?utf8=%E2%9C%93&q=involves%3Atanhengyeow' %}
+        {% elsif repository.name == 'ice-scripts' %}
+          {% assign link = 'https://github.com/ice-lab/ice-scripts/pulls?utf8=%E2%9C%93&q=involves%3Atanhengyeow' %}
+        {% elsif repository.name == 'jenkins-job-builder' %}
+          {% assign link = 'https://review.opendev.org/#/q/owner:%22Tan+Heng+Yeow+%253CE0032242%2540u.nus.edu%253E%22' %}
+        {% elsif repository.name == 'cra-materials' %}
+          {% assign link = 'https://github.com/ice-lab/cra-materials/issues?utf8=%E2%9C%93&q=involves%3Atanhengyeow' %}
+        {% elsif repository.name == 'design-system-react' %}
+          {% assign link = 'https://github.com/salesforce/design-system-react/issues?utf8=%E2%9C%93&q=involves%3Atanhengyeow' %}
+        {% endif %}
+        <a href="{{ link }}" target="_blank">
+          {% octicon eye height:20 class:"mr-1 v-align-middle" fill:"#586069" aria-label:repo %}{{ repository.name }}
+        </a>
+      </h1>
+    </div>
+    <div class="text-gray mb-2 ws-normal">{{ repository.description }}</div>
+  </div>
+  <div class="d-flex f6">
+    {% if repository.language %}
+      <span class="repo-language-color ml-0 mr-1" style="background-color:{{ site.data.colors[repository.language]["color"] }}"></span>
+      <span class="mr-3" itemprop="programmingLanguage">{{ repository.language }}</span>
+    {% endif %}
+  </div>
+</div>
